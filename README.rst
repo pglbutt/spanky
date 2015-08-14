@@ -16,6 +16,13 @@ Idempotent devops.
 
 A collection of cli tools and nice DSL for doing devops.
 
+::
+   $ cat tests/etc/spanky/users.yml
+   ---
+   - username: mimi
+   $ sp -c tests/etc/spanky/ users
+
+User mimi has been created!!!!!
 
 * Free software: BSD license
 * Documentation: https://spanky.readthedocs.org.
