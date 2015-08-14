@@ -3,4 +3,3 @@
 pytest
 mock
 bumpversion
-click
