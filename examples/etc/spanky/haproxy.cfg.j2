@@ -1,0 +1,19 @@
+global
+  daemon
+  user root
+  group root
+  pidfile /var/run/haproxy.pid
+  maxconn 50000
+
+listen api
+  bind *:80
+  balance roundrobin
+  mode http
+  timeout connect 5s
+  timeout client 10s
+  timeout server 10s
+  description api pool
+  source 172.16.9.7 interface eth2
+  {% for host, port in members %}
+  server localhost {{ host }}:{{ port }}
+  {% endfor %}
