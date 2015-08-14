@@ -13,7 +13,9 @@ class UserInit(object):
             '-U', # create group with
             user_conf['username']
         ]
+        if call(cmd):
+            raise Exception()
 
     def build(self):
-        for user in self.config.items():
+        for user in self.config:
             self.create_user(user)
