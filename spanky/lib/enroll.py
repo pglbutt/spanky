@@ -34,6 +34,17 @@ class Enroller(object):
         self.conn.srem(name, self.value(host, port))
 
 
+class roster(object):
+
+    def __init__(self, config, name):
+        self.config = config
+        self.enroller = Enroller(self.config)
+        self.name = name
+
+    def __iter__(self):
+        for member in self.enroller.enrolled(self.name):
+            yield member
+
 
 
 class enroll(object):

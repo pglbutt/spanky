@@ -16,6 +16,5 @@ from spanky.lib.enroll import enroll
 @pass_context
 def cli(ctx, name, host, port, cmd):
     config = ctx.config.load('enroll.yml')
-    print(cmd)
     with enroll(config, name, host, port):
         sys.exit(subprocess.call(' '.join(cmd), shell=True))
