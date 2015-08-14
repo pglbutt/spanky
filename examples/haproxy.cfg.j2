@@ -13,7 +13,5 @@ listen api
   timeout client 10s
   timeout server 10s
   description api pool
-  source 172.16.9.7 interface eth2
-  {% for member in members %}
-  server localhost {{ member }}
+  {% for member in members %}server localhost {{ member }}
   {% endfor %}
