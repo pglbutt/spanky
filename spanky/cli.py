@@ -55,7 +55,7 @@ class SpankyCLI(click.MultiCommand):
 @click.command(cls=SpankyCLI, context_settings=CONTEXT_SETTINGS)
 @click.option('-v', '--verbose', is_flag=True,
               help='Enables verbose mode.')
-@click.option('-c', '--config-dir', default='/etc/spanky',
+@click.option('-c', '--config-dir', default='.',
               help='The path to the config files. DEFAULT: /etc/spanky')
 @pass_context
 def cli(ctx, verbose, config_dir):
