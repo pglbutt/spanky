@@ -1,0 +1,5 @@
+---
+- dir: /home/mimi/foo
+  user: mimi
+  group: mimi
+  mode: 0644
