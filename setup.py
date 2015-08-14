@@ -14,6 +14,7 @@ requirements = [
     'Click',
     'PyYAML',
     'redis',
+    'jinja2',
 ]
 
 setup(
