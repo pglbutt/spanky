@@ -10,4 +10,4 @@ Development Lead
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Tim Simmons <tim.r.simmons@gmail.com>
