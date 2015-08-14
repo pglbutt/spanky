@@ -11,7 +11,7 @@ from spanky.lib.enroll import enroll
                context_settings=dict(ignore_unknown_options=True))
 @click.option('--name', '-n')
 @click.option('--host', '-H')
-@click.option('--port', '-p')
+@click.option('--port', '-p', envvar='PORT')
 @click.argument('cmd', nargs=-1, type=click.UNPROCESSED)
 @pass_context
 def cli(ctx, name, host, port, cmd):

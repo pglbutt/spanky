@@ -1,4 +1,4 @@
-import sys
+import json
 
 import click
 
@@ -11,6 +11,4 @@ from spanky.lib.enroll import roster
 @pass_context
 def cli(ctx, name):
     config = ctx.config.load('enroll.yml')
-
-    for entry in roster(config, name):
-        click.echo(entry)
+    click.echo(json.dumps(list(roster(config, name))))
