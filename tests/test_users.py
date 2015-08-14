@@ -31,3 +31,16 @@ class TestCreateUsers(object):
     def test_create_users_raises_error_on_fail(self, call):
         call.return_value = 1
         assert pytest.raises(Exception, self.user_init.create_user, {'username': 'foo'})
+
+    @patch.object(users, 'call')
+    def test_useradd_command(self, call):
+        call.return_value = 0
+
+        self.user_init.create_user({
+            'username': 'foo',
+        })
+
+        expected = [
+            'useradd', '-U', 'foo'
+        ]
+        call.assert_called_with(expected)
