@@ -10,7 +10,7 @@ from spanky.lib.users import UserInit
 @pass_context
 def cli(ctx):
     try:
-        config = ctx.config.load('users.yml')()
+        config = ctx.config.load('users.yml')
     except IOError:
         # no config lets bail
         click.echo('No users to install')
