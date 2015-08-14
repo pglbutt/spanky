@@ -13,6 +13,7 @@ readme = open('README.rst').read()
 requirements = [
     'Click',
     'PyYAML',
+    'redis',
 ]
 
 setup(
