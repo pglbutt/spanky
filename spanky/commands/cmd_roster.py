@@ -12,4 +12,4 @@ from spanky.lib.enroll import roster
 def cli(ctx, name):
     config = ctx.config.load('enroll.yml')
     members = list(roster(config, name))
-    click.echo(json.dumps({'memebers': members}))
+    click.echo(json.dumps({'members': members}))
