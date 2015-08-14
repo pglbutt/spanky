@@ -27,6 +27,11 @@ setup(
     ],
     package_dir={'spanky':
                  'spanky'},
+    entry_points={
+        'console_scripts': [
+            'sp = spanky.cli:cli'
+        ]
+    },
     include_package_data=True,
     install_requires=requirements,
     license="BSD",
