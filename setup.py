@@ -11,7 +11,8 @@ except ImportError:
 readme = open('README.rst').read()
 
 requirements = [
-    'Click'
+    'Click',
+    'PyYAML',
 ]
 
 setup(
