@@ -2,6 +2,8 @@ import os
 import sys
 import click
 
+from spanky.config import Config
+
 
 CONTEXT_SETTINGS = dict(auto_envvar_prefix='COMPLEX')
 
@@ -53,7 +55,10 @@ class SpankyCLI(click.MultiCommand):
 @click.command(cls=SpankyCLI, context_settings=CONTEXT_SETTINGS)
 @click.option('-v', '--verbose', is_flag=True,
               help='Enables verbose mode.')
+@click.option('-c', '--config-dir', default='/etc/spanky',
+              help='The path to the config files. DEFAULT: /etc/spanky')
 @pass_context
-def cli(ctx, verbose):
+def cli(ctx, verbose, config_dir):
     """Spanky the Devop."""
     ctx.verbose = verbose
+    ctx.config = Config(config_dir)
