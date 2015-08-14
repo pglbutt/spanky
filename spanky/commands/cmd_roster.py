@@ -11,4 +11,5 @@ from spanky.lib.enroll import roster
 @pass_context
 def cli(ctx, name):
     config = ctx.config.load('enroll.yml')
-    click.echo(json.dumps(list(roster(config, name))))
+    members = list(roster(config, name))
+    click.echo(json.dumps({'memebers': members}))
