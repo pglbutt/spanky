@@ -1,0 +1,5 @@
+---
+- dir: directorycreated
+  user: mimi
+  group: root
+  mode: 755
