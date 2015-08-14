@@ -9,28 +9,20 @@ from spanky.cli import pass_context
 
 @click.command('template', short_help='writes a template')
 @click.argument('template')
-@click.argument('value_path')
-@click.argument('destination')
+@click.argument('values', type=click.File('rb'))
 @pass_context
-def cli(ctx, template, value_path, destination):
+def cli(ctx, template, values):
     cfg_dir = ctx.config.base
 
     template_file = os.path.join(cfg_dir, template)
     f = _open_file(template_file, 'r')
     jtemplate = Environment().from_string(f.read())
 
-    value_path = os.path.join(cfg_dir, value_path)
-
-    try:
-        values = json.load(_open_file(value_path, 'r'))
-    except ValueError:
-        click.echo("Invalid json in %s" % value_path)
-        raise click.Abort()
+    values = json.load(values)
 
     rendered = jtemplate.render(**values)
 
-    with open(destination, 'w+') as f:
-        f.write(rendered)
+    click.echo(rendered)
 
 
 def _open_file(filename, mode):
